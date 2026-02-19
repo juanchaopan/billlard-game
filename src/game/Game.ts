@@ -18,7 +18,7 @@ export class Game {
   private balls: Ball[] = [];
   private cue: Cue;
 
-  private phase: GamePhase = 'BALL_IN_HAND';
+  private phase: GamePhase = 'AIMING';
   private currentPlayer = 0;
   private players: PlayerState[] = [
     { name: 'Player 1', group: null },
