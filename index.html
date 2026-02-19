@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8-Ball Pool</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎱</text></svg>" />
+  </head>
+  <body class="min-h-screen bg-gray-950 text-white flex flex-col items-center justify-start py-4 gap-3">
+
+    <!-- Header -->
+    <header class="flex items-center gap-3">
+      <span class="text-3xl">🎱</span>
+      <h1 class="text-2xl font-bold tracking-wide text-green-400">8-Ball Pool</h1>
+    </header>
+
+    <!-- Scoreboard -->
+    <div class="flex gap-6 text-sm">
+      <!-- Player 1 -->
+      <div id="p1-card" class="bg-gray-800 rounded-lg px-4 py-2 min-w-[140px] border border-gray-700">
+        <div class="font-semibold text-blue-300">Player 1</div>
+        <div id="p1-group" class="text-yellow-400 text-xs mt-0.5">?</div>
+        <div id="p1-balls" class="text-gray-400 text-xs">7 left</div>
+      </div>
+
+      <!-- Current player & phase -->
+      <div class="flex flex-col items-center justify-center text-center">
+        <div id="current-player" class="text-lg font-bold text-green-300">Player 1's Turn</div>
+        <div id="message" class="text-xs text-yellow-300 max-w-xs h-4 mt-0.5"></div>
+      </div>
+
+      <!-- Player 2 -->
+      <div id="p2-card" class="bg-gray-800 rounded-lg px-4 py-2 min-w-[140px] border border-gray-700">
+        <div class="font-semibold text-red-300">Player 2</div>
+        <div id="p2-group" class="text-yellow-400 text-xs mt-0.5">?</div>
+        <div id="p2-balls" class="text-gray-400 text-xs">7 left</div>
+      </div>
+    </div>
+
+    <!-- Canvas container -->
+    <div id="canvas-container" class="relative rounded-xl overflow-hidden shadow-2xl shadow-black/60 border border-gray-700">
+
+      <!-- Game Over Overlay -->
+      <div
+        id="game-over-overlay"
+        class="hidden absolute inset-0 bg-black/80 flex flex-col items-center justify-center gap-4 z-10 backdrop-blur-sm"
+      >
+        <div class="text-5xl">🏆</div>
+        <h2 id="overlay-title" class="text-3xl font-bold text-yellow-400"></h2>
+        <p id="overlay-msg" class="text-gray-300 text-sm"></p>
+        <button
+          id="restart-btn"
+          class="mt-2 px-6 py-2.5 bg-green-600 hover:bg-green-500 text-white font-semibold rounded-lg transition-colors shadow-lg"
+        >
+          Play Again
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Phase info / instructions -->
+    <div id="phase-info" class="text-xs text-gray-400 text-center max-w-lg px-4">
+      Hold mouse button to charge power, release to shoot
+    </div>
+
+    <!-- Quick rules -->
+    <div class="text-xs text-gray-600 text-center max-w-lg px-4 leading-relaxed">
+      Solids: balls 1–7 &nbsp;|&nbsp; Stripes: balls 9–15 &nbsp;|&nbsp;
+      First pocketed ball assigns your group &nbsp;|&nbsp;
+      Pocket all your balls then sink the 8-ball to win
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
